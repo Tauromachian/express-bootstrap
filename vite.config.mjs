@@ -9,7 +9,7 @@ dotenv.config();
 export default defineConfig({
   root: "client",
   build: {
-    outDir: "../public/dist",
+    outDir: "../public",
     emptyOutDir: true,
     minify: process.env.APP_ENV === "production",
     rollupOptions: {
