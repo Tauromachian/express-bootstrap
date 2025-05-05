@@ -27,8 +27,15 @@ if (process.env.NODE_ENV === "development") {
   var livereload = require("livereload");
   var connectLiveReload = require("connect-livereload");
 
-  const liveReloadServer = livereload.createServer();
-  liveReloadServer.watch(path.join(__dirname, "public"));
+  const liveReloadServer = livereload.createServer({
+    exts: ["html", "css", "js", "hbs"],
+  });
+
+  liveReloadServer.watch([
+    path.join(__dirname, "public"),
+    path.join(__dirname, "views"),
+  ]);
+
   liveReloadServer.server.once("connection", () => {
     setTimeout(() => {
       liveReloadServer.refresh("/");
