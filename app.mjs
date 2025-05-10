@@ -1,14 +1,12 @@
+import path, { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
 import express from "express";
 import cookieParser from "cookie-parser";
 import createError from "http-errors";
 import logger from "morgan";
-import livereload from "livereload";
-import connectLiveReload from "connect-livereload";
 
 import { config } from "dotenv";
-
-import path, { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
 
 import indexRouter from "./routes/index.mjs";
 import usersRouter from "./routes/users.mjs";
@@ -28,24 +26,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
-if (process.env.NODE_ENV === "development") {
-  const liveReloadServer = livereload.createServer({
-    exts: ["html", "css", "js", "hbs"],
-  });
-
-  liveReloadServer.watch([
-    path.join(__dirname, "public"),
-    path.join(__dirname, "views"),
-  ]);
-
-  liveReloadServer.server.once("connection", () => {
-    setTimeout(() => {
-      liveReloadServer.refresh("/");
-    }, 100);
-  });
-  app.use(connectLiveReload());
-}
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
