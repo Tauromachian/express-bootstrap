@@ -54,26 +54,18 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-  if (error.syscall !== "listen") {
-    throw error;
-  }
+  if (error.syscall !== "listen") throw error;
 
   let bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   const actionByErrorCode = {
-    EACCES: () => {
-      log(bind + " requires elevated privileges");
-    },
-    EADDRINUSE: () => {
-      log(bind + " is already in use");
-    },
+    EACCES: () => log(bind + " requires elevated privileges"),
+    EADDRINUSE: () => log(bind + " is already in use"),
   };
 
   const action = actionByErrorCode[error.code];
 
-  if (!action) {
-    throw error;
-  }
+  if (!action) throw error;
 
   action();
   process.exit(1);
