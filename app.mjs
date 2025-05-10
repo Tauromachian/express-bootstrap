@@ -7,14 +7,17 @@ import connectLiveReload from "connect-livereload";
 
 import { config } from "dotenv";
 
-import path from "node:path";
+import path, { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
-import indexRouter from "./routes/index";
-import usersRouter from "./routes/users";
+import indexRouter from "./routes/index.mjs";
+import usersRouter from "./routes/users.mjs";
 
 config();
 
 let app = express();
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
