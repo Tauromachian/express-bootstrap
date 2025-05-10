@@ -24,3 +24,10 @@ The installed stack is:
 - Vite
 - Eslint
 - Prettier
+
+## Install
+
+1. Clone this project and install the dependencies. I am using yarn but feel free to change it.
+2. Make .env file with the contents of .env.example
+
+And that is it.
