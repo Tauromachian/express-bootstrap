@@ -1,15 +1,20 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-const dotenv = require("dotenv");
-dotenv.config();
+import express from "express";
+import cookieParser from "cookie-parser";
+import createError from "http-errors";
+import logger from "morgan";
+import livereload from "livereload";
+import connectLiveReload from "connect-livereload";
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+import { config } from "dotenv";
 
-var app = express();
+import path from "node:path";
+
+import indexRouter from "./routes/index";
+import usersRouter from "./routes/users";
+
+config();
+
+let app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -24,9 +29,6 @@ app.use(express.static(path.join(__dirname, "public")));
 console.log(process.env.NODE_ENV);
 
 if (process.env.NODE_ENV === "development") {
-  var livereload = require("livereload");
-  var connectLiveReload = require("connect-livereload");
-
   const liveReloadServer = livereload.createServer({
     exts: ["html", "css", "js", "hbs"],
   });
@@ -48,7 +50,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function (_, _, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
@@ -63,4 +65,4 @@ app.use(function (err, req, res) {
   res.render("error");
 });
 
-module.exports = app;
+export default app;

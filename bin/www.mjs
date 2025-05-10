@@ -1,14 +1,12 @@
-#!/usr/bin/env node
+import { config } from "dotenv";
 
-/**
- * Module dependencies.
- */
+import debug from "debug";
+import http from "http";
 
-require("dotenv").config();
+import app from "../app.mjs";
 
-let app = require("../app");
-let debug = require("debug")("template-express-live-reload:server");
-let http = require("http");
+config();
+debug("template-express-live-reload:server");
 
 /**
  * Get port from environment and store in Express.
