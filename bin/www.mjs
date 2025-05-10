@@ -1,12 +1,13 @@
 import { config } from "dotenv";
-
 import debug from "debug";
 import http from "http";
 
 import app from "../app.mjs";
 
 config();
-debug("express-bootstrap:server");
+
+debug.enable(process.env.DEBUG);
+const log = debug("express-bootstrap:server");
 
 /**
  * Get port from environment and store in Express.
@@ -30,8 +31,7 @@ server.on("error", onError);
 server.on("listening", onListening);
 
 /**
- * Normalize a port into a number, string, or false.
- */
+ * Normalize a port into a number, string, or false. */
 
 function normalizePort(val) {
   let port = parseInt(val, 10);
@@ -80,5 +80,6 @@ function onError(error) {
 function onListening() {
   let addr = server.address();
   let bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-  debug("Listening on " + bind);
+
+  log("Listening on " + bind);
 }
