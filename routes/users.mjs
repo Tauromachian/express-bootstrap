@@ -3,7 +3,7 @@ import { Router } from "express";
 let router = Router();
 
 /* GET users listing. */
-router.get("/", function (res) {
+router.get("/", (res) => {
   res.send("respond with a resource");
 });
 
