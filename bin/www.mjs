@@ -60,17 +60,23 @@ function onError(error) {
 
   let bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case "EACCES":
-      console.error(bind + " requires elevated privileges");
-      process.exit(1);
-    case "EADDRINUSE":
-      console.error(bind + " is already in use");
-      process.exit(1);
-    default:
-      throw error;
+  const actionByErrorCode = {
+    EACCES: () => {
+      log(bind + " requires elevated privileges");
+    },
+    EADDRINUSE: () => {
+      log(bind + " is already in use");
+    },
+  };
+
+  const action = actionByErrorCode[error.code];
+
+  if (!action) {
+    throw error;
   }
+
+  action();
+  process.exit(1);
 }
 
 /**
