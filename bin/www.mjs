@@ -6,7 +6,7 @@ import http from "http";
 import app from "../app.mjs";
 
 config();
-debug("template-express-live-reload:server");
+debug("express-bootstrap:server");
 
 /**
  * Get port from environment and store in Express.
