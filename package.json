@@ -17,10 +17,17 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@eslint/css": "^0.7.0",
+    "@eslint/js": "^9.26.0",
+    "@eslint/json": "^0.12.0",
     "connect-livereload": "^0.6.1",
     "dotenv": "^16.0.1",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.5",
+    "globals": "^16.1.0",
     "livereload": "^0.9.3",
     "nodemon": "^3.1.10",
+    "prettier": "^3.5.3",
     "vite": "^6.3.4"
   }
 }
