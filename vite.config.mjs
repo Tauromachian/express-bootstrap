@@ -7,7 +7,6 @@ import path from "node:path";
 dotenv.config();
 
 export default defineConfig({
-  root: "client",
   build: {
     outDir: "../public",
     emptyOutDir: true,
