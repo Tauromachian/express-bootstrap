@@ -1,0 +1,24 @@
+# Express Bootstrap
+
+The purpose of this project is to create a template for a web site using Express.
+
+Express is bare-bones, which is good, but there some features you will need. Such as
+
+- Livereload
+- Logging
+- Reading the environment
+- Linting and formating
+
+I am trying to make an Express template that is as simple as possible. That also provides what we always use in every project.
+
+The installed stack is:
+
+- Express
+- Handlebars
+- Morgan
+- Dotenv
+- Livereload / Connect-livereload
+- Nodemon
+- Vite
+- Eslint
+- Prettier
