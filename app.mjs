@@ -29,8 +29,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-console.log(process.env.NODE_ENV);
-
 if (process.env.NODE_ENV === "development") {
   const liveReloadServer = livereload.createServer({
     exts: ["html", "css", "js", "hbs"],
