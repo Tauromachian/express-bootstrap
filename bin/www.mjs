@@ -9,11 +9,13 @@ config();
 debug.enable(process.env.DEBUG);
 const log = debug("express-bootstrap:server");
 
+const DEFAULT_PORT = 3000;
+
 /**
  * Get port from environment and store in Express.
  */
 
-let port = normalizePort(process.env.PORT || "3000");
+let port = normalizePort(process.env.PORT || DEFAULT_PORT);
 app.set("port", port);
 
 /**
@@ -34,19 +36,21 @@ server.on("listening", onListening);
  * Normalize a port into a number, string, or false. */
 
 function normalizePort(val) {
-  let port = parseInt(val, 10);
+  let port = Number(val);
 
-  if (isNaN(port)) {
-    // named pipe
-    return val;
+  if (Number.isNaN(port)) {
+    log("Invalid port: " + port);
+
+    return DEFAULT_PORT;
   }
 
-  if (port >= 0) {
-    // port number
-    return port;
+  if (port < 0) {
+    log("Invalid port: " + port);
+
+    return DEFAULT_PORT;
   }
 
-  return false;
+  return port;
 }
 
 /**
