@@ -8,6 +8,8 @@ import logger from "morgan";
 
 import { config } from "dotenv";
 
+import { initLivereload } from "./config/livereload.mjs";
+
 import indexRouter from "./routes/index.mjs";
 import usersRouter from "./routes/users.mjs";
 
@@ -26,6 +28,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+initLivereload(app);
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

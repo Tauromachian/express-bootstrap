@@ -1,36 +1,10 @@
-import path, { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
-
 import { config } from "dotenv";
 import debug from "debug";
 import http from "http";
-import livereload from "livereload";
-import connectLiveReload from "connect-livereload";
 
 import app from "../app.mjs";
 
 config();
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const rootDirname = __dirname.split("/").splice(0, -1).join("/");
-
-if (process.env.NODE_ENV === "development") {
-  const liveReloadServer = livereload.createServer({
-    exts: ["html", "css", "js", "hbs"],
-  });
-
-  liveReloadServer.watch([
-    path.join(rootDirname, "public"),
-    path.join(rootDirname, "views"),
-  ]);
-
-  liveReloadServer.server.once("connection", () => {
-    setTimeout(() => {
-      liveReloadServer.refresh("/");
-    }, 100);
-  });
-  app.use(connectLiveReload());
-}
 
 debug.enable(process.env.DEBUG);
 const log = debug("express-bootstrap:server");
