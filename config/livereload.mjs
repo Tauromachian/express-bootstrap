@@ -4,6 +4,10 @@ import { fileURLToPath } from "node:url";
 import livereload from "livereload";
 import connectLiveReload from "connect-livereload";
 
+import { config } from "dotenv";
+
+config();
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const rootDirname = __dirname.split("/").slice(0, -1).join("/");
