@@ -9,7 +9,7 @@ Express is bare-bones, which is good, but there some features you will need. Suc
 - Reading the environment
 - Linting and formating
 
-I am trying to make an Express template that is as simple as possible. That also provides what we always use in every project.
+I also use module file. This makes it easier to use the newer import syntax.
 
 ## Stack
 
