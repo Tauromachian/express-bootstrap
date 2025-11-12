@@ -1,15 +1,16 @@
 # Express Bootstrap
 
-The purpose of this project is to create a template for a web site using Express.
+Express Bootstrap is an Express.js template. This project provides comfort without getting opinionated.
 
-Express is bare-bones, which is good, but there some features you will need. Such as
+**Pre-configured features**
 
-- Livereload
-- Logging
-- Reading the environment
-- Linting and formating
-
-I also use module file. This makes it easier to use the newer import syntax.
+- Live-reload.
+- Logging.
+- Reading the environment.
+- Linting and formating.
+- ECMA module system.
+- Detect open ports.
+- Front end assets processing with Vite.
 
 ## Stack
 
