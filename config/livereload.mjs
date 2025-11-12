@@ -12,11 +12,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const rootDirname = __dirname.split("/").slice(0, -1).join("/");
 
-export function initLivereload(app) {
+export function initLivereload(app, port = 35729) {
   if (process.env.NODE_ENV !== "development") return;
 
   const liveReloadServer = livereload.createServer({
     exts: ["html", "css", "js", "hbs"],
+    port,
   });
 
   liveReloadServer.watch([
