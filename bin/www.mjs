@@ -21,7 +21,7 @@ function normalizePort(val) {
   let port = Number(val);
 
   if (Number.isNaN(port)) {
-    log("Invalid port: " + port);
+    log(`No port specified in env var APP_PORT. Defaulting to ${DEFAULT_PORT}`);
 
     return DEFAULT_PORT;
   }
