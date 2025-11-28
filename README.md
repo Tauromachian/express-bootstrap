@@ -16,15 +16,15 @@ Express Bootstrap is an Express.js template. This project provides comfort witho
 
 The installed stack is:
 
-- Express
 - Handlebars
-- Morgan
+- Pino
 - Dotenv
 - Livereload / Connect-livereload
 - Nodemon
 - Vite
 - Eslint
 - Prettier
+- Debug
 
 ## Install
 
