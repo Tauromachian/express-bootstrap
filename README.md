@@ -26,6 +26,7 @@ The installed stack is:
 - Prettier
 - Debug
 - pnpm
+- Jest
 
 ## Install
 
