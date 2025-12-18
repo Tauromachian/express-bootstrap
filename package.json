@@ -9,8 +9,8 @@
     "start": "node ./bin/www.mjs",
     "dev": "nodemon ./bin/www.mjs",
     "watch": "vite build --watch",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",
