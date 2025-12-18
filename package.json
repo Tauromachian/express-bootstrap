@@ -8,7 +8,9 @@
   "scripts": {
     "start": "node ./bin/www.mjs",
     "dev": "nodemon ./bin/www.mjs",
-    "watch": "vite build --watch"
+    "watch": "vite build --watch",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",
