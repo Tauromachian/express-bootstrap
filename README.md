@@ -11,6 +11,7 @@ Express Bootstrap is an Express.js template. This project provides comfort witho
 - ECMA module system.
 - Detect open ports.
 - Front end assets processing with Vite.
+- Unit testing.
 
 ## Stack
 
